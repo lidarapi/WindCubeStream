@@ -1,0 +1,120 @@
+REQUEST NAME;REQUEST EVENT NAME;REQUEST DESCRIPTION;"PAYLOAD PARAMETERS (NAME;TYPE;OPTIONAL;DESCRIPTION;OPTIONAL_ENUM_SEPARATED_BY_COMMAS)";"REQUEST EXAMPLES (JSONs SEPARATED by "";"")";IMMEDIATE RESPONSE EVENT NAME;RECURRING RESPONSES EVENT NAMES (SEPARATED BY COMMAS);"ERRORS EXAMPLES (JSONs SEPARATAED BY "";"")"
+Subscribe;subscribe;"This is the message to subscribe to available data. 
+You need to send a subscription message for each wanted data.
+When this message is sent, you immediately receive an aknownledgment about subscription status, and then start to receive subscribed data regularly (depending on subscribed data).";"name;String;Required;Name of wanted data to subscribe;""service_availability"",""global_status"",""rtd""";"{
+   ""token"": ""WW91ciBhdXRoZW50aWNhdGlvbiB0b2tlbiBnb2VzIGhlcmUu"",
+   ""event"": ""subscribe"",
+   ""payload"": {
+      ""name"": ""rtd""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""subscribe"",
+   ""payload"": {
+      ""name"": ""global_status""
+   }
+}";subscription_status;service_availability,global_status,rtd;"{
+   ""event"": ""error"",
+   ""payload"": {
+      ""error"": ""parameter_not_valid"",
+      ""explanation"": ""Value 'example' for 'name' parameter is not valid"",
+      ""request"": {
+   ""token"": ""WW91ciBhdXRoZW50aWNhdGlvbiB0b2tlbiBnb2VzIGhlcmUu"",
+   ""event"": ""subscribe"",
+   ""payload"": {
+      ""name"": ""example""
+   }
+}
+   }
+}"
+Unsubscribe;unsubscribe;"This is the message to unsubscribe to data. 
+You need to send a unsubscription message for each wanted data.
+When this message is sent, you immediately receive an aknownledgment about subscription status, and stop receiving unsubscribed data.";"name;String;Required;Name of wanted data to unsubscribe;""service_availability"",""global_status"",""rtd""";"{
+   ""token"": ""WW91ciBhdXRoZW50aWNhdGlvbiB0b2tlbiBnb2VzIGhlcmUu"",
+   ""event"": ""unsubscribe"",
+   ""payload"": {
+      ""name"": ""rtd""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""unsubscribe"",
+   ""payload"": {
+      ""name"": ""global_status""
+   }
+}";subscription_status;;"{
+   ""event"": ""error"",
+   ""payload"": {
+      ""error"": ""parameter_not_valid"",
+      ""explanation"": ""Value 'example2' for 'name' parameter is not valid"",
+      ""request"": {
+   ""token"": ""WW91ciBhdXRoZW50aWNhdGlvbiB0b2tlbiBnb2VzIGhlcmUu"",
+   ""event"": ""unsubscribe"",
+   ""payload"": {
+      ""name"": ""example2""
+   }
+}
+   }
+}"
+;;;;;;;
+;;;;;;;
+;;;;;;;
+DELIMITER;<== DO NOT REMOVE THIS KEYWORD AND KEEP RESPONSES HEADERS IN BELOW LINE;;;;;;
+RESPONSE NAME;RESPONSE EVENT NAME;RESPONSE DESCRIPTION;"PAYLOAD PARAMETERS (NAME;TYPE;OPTIONAL;DESCRIPTION;OPTIONAL_ENUM_SEPARATED_BY_COMMAS)";RESPONSE EXAMPLES;RESPONSE PERMISSION;;
+Subscription status;subscription_status;Message sent as acknowledgment of subscription or unsubscription;"name;String;Required;Data name;""service_availability"",""global_status"",""rtd""
+is_subscribed;Bool;Required;Subscription status;true,false";"{
+   ""event"": ""subscription_status"",
+   ""payload"": {
+      ""name"": ""rtd"",
+      ""is_subscribed"": true
+   }
+}";;;
+Global status;global_status;Lidar global status, sent at least every 15min or when it changes;"status;String;Required;Global status;""OK"", ""WARNING"", ""CRITICAL"", ""UNKNOWN""";"{
+   ""event"": ""global_status"",
+   ""payload"": {
+      ""status"": ""CRITICAL""   
+   }
+}";viewer;;
+RTD;rtd;Message sent when new rtd data is available;"timestamp;String;Required;Data timestamp
+position;String;Required;LOS position;""V"",""0"",""90"",""180"",""270""
+cnr;Number[];Required;CNR (dB) for each range
+radial_wind_speed;Number[];Required;Radial Wind Speed (m/s) for each range
+radial_wind_speed_dispersion;Number[];Required;Radial Wind Speed dispersion (m/s) for each range
+wind_speed;Number[];Required;Wind Speed (m/s) for each range
+wind_direction;Number[];Required;Wind direction (&deg) for each range
+z_wind;Number[];Required;Z-wind (m/s) for each range";"{
+	""event"": ""rtd"",
+	""payload"": {
+		""timestamp"": ""2021-11-15T14:00:04.615"",
+                        ""position"": ""90"",
+		""cnr"": [2.1, -0.4, 3.4, 6.2],
+		""radial_wind_speed"": [2.1, -0.4, 3.4, 6.2],
+		""radial_wind_speed_dispersion"": [2.1, -0.4, 3.4, 6.2],
+		""wind_speed"": [2.1, -0.4, 3.4, 6.2],
+		""wind_direction"": [2.1, -0.4, 3.4, 6.2],
+		""z_wind"": [2.1, -0.4, 3.4, 6.2]
+	}
+}";standard;;
+Error;error;General error object, sent by server when incoming request is invalid;"error;String;Required;Error keyword
+explanation;String;Required;Error explanation
+request;Object;Optional;The request sent by client resulting in this error. This parameter may be absent depending on the returned error.";"{
+   ""event"": ""error"",
+   ""payload"": {
+      ""error"": ""event_not_valid"",
+      ""explanation"": ""Event 'example' does not exist"",
+      ""request"": {
+   ""token"": ""WW91ciBhdXRoZW50aWNhdGlvbiB0b2tlbiBnb2VzIGhlcmUu"",
+   ""event"": ""example"",
+   ""payload"": {
+      ""parameter"": ""value""
+   }
+}
+   }
+}";;;
+Service availability;service_availability;Message informing about service availability, sent at least every minute or when service becomes available/unavailable. When service is not available, most of subscriptions do not send new data until it becomes available again.;"available;Bool;Required;Service availability;true,false";"{
+   ""event"": ""service_availability"",
+   ""payload"": {
+      ""available"": true
+   }
+}";viewer;;

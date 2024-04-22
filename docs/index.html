@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="resources/favicon.png">
+	<link href="resources/style.css" rel="stylesheet">
+	<link href="scripts/jquery.toast.min.css" rel="stylesheet">
+    <title>Lidar streaming API documentation</title>
+  </head>
+  <body>
+	<div id="sidebar">
+		<img src="resources/logo.png" />
+		<select id="version-selector"></select>
+		<a href="#introduction">Introduction</a>
+		<a href="#requests">Requests</a>
+		<ul id="requests_items_csv">
+		</ul>
+		<a href="#responses">Responses</a>
+		<ul id="responses_items_csv">
+		</ul>
+	</div>
+	<div id="content">
+		<h1>Lidar streaming API documentation V<span id="version"></span></h1>
+	
+		<h2 id="introduction">Introduction <a class="anchor" onclick="copyUrl('#introduction')">#</a></h2>
+		<div id="intro_md"></div>
+		
+		<h2 id="requests">Requests <a class="anchor" onclick="copyUrl('#requests')">#</a></h2>
+		Requests are messages sent from a websocket client to the server
+		<div id="requests_csv"></div>
+		
+		<h2 id="responses">Responses <a class="anchor" onclick="copyUrl('#responses')">#</a></h2>
+		Responses are messages sent from the websocket server to client(s), either directly once after a request or multiple times regularly after a subscription
+		<div id="responses_csv"></div>
+	</div>
+    <script src="scripts/jquery-3.6.0.min.js"></script>
+    <script src="scripts/jquery.toast.min.js"></script>
+    <script src="scripts/papaparse.min.js"></script>
+    <script src="scripts/showdown.min.js"></script>
+    <script src="scripts/doc-generator.js"></script>
+
+  </body>
+</html>
