@@ -1,6 +1,6 @@
 Welcome to Lidar streaming API documentation.
 
-This streaming API works using Websockets, either in Server Mode by connecting a client to the following URL: "ws://host/lidar_stream/" (or you can use secure websockets [wss://] if you configured a selfsigned certificate or your own SSL certificate), or in Client Mode by configuring your websocket server in Lidar's configuration.
+This streaming API works using Websockets, either in Server Mode by connecting a client to the following URL: "ws://host/lidar_stream/v1" (or you can use secure websockets [wss://] if you configured a selfsigned certificate or your own SSL certificate), or in Client Mode by configuring your websocket server in Lidar's configuration.
 
 In Server Mode, the API client must request an authentication "token" via the REST API using login route and provide it in each request as shown below. For more details read [REST API documentation](../doc)
 
