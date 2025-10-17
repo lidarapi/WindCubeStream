@@ -1,0 +1,427 @@
+REQUEST NAME;REQUEST EVENT NAME;REQUEST DESCRIPTION;"PAYLOAD PARAMETERS (NAME;TYPE;OPTIONAL;DESCRIPTION;OPTIONAL_ENUM_SEPARATED_BY_COMMAS)";"REQUEST EXAMPLES (JSONs SEPARATED by "";"")";IMMEDIATE RESPONSE EVENT NAME;RECURRING RESPONSES EVENT NAMES (SEPARATED BY COMMAS);"ERRORS EXAMPLES (JSONs SEPARATAED BY "";"")"
+Subscribe;subscribe;"This is the message to subscribe to available data.
+You need to send a subscription message for each wanted data.
+When this message is sent, you immediately receive an aknownledgment about subscription status, and then start to receive subscribed data regularly (depending on subscribed data).";"name;String;Required;Name of wanted data to subscribe;""service_availability"",""global_status"",""device_status"",""device_laser_chain_status"",""device_thermal_manager_status"",""device_disk_status"",""device_pth_sensor_status"",""device_data_availability_status"",""device_synchro_status"",""device_power_pack_status"",""device_compass_status"",""rtd"",""sta"",""std_sta"",""rfl""";"{
+   ""token"": ""WW91ciBhdXRoZW50aWNhdGlvbiB0b2tlbiBnb2VzIGhlcmUu"",
+   ""event"": ""subscribe"",
+   ""payload"": {
+      ""name"": ""rtd""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""subscribe"",
+   ""payload"": {
+      ""name"": ""sta""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""subscribe"",
+   ""payload"": {
+      ""name"": ""std_sta""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""subscribe"",
+   ""payload"": {
+      ""name"": ""rfl""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""subscribe"",
+   ""payload"": {
+      ""name"": ""global_status""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""subscribe"",
+   ""payload"": {
+      ""name"": ""device_status""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""subscribe"",
+   ""payload"": {
+      ""name"": ""device_laser_chain_status""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""subscribe"",
+   ""payload"": {
+      ""name"": ""device_thermal_manager_status""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""subscribe"",
+   ""payload"": {
+      ""name"": ""device_disk_status""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""subscribe"",
+   ""payload"": {
+      ""name"": ""device_pth_sensor_status""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""subscribe"",
+   ""payload"": {
+      ""name"": ""device_data_availability_status""
+   }
+};{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""subscribe"",
+   ""payload"": {
+      ""name"": ""device_synchro_status""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""subscribe"",
+   ""payload"": {
+      ""name"": ""device_power_pack_status""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""subscribe"",
+   ""payload"": {
+      ""name"": ""device_compass_status""
+   }
+}";subscription_status;service_availability,global_status,device_status,device_laser_chain_status,device_thermal_manager_status,device_disk_status,device_pth_sensor_status,device_data_availability_status,device_synchro_status,device_power_pack_status,device_compass_status,rtd,sta,std_sta,rfl;"{
+   ""event"": ""error"",
+   ""payload"": {
+      ""error"": ""parameter_not_valid"",
+      ""explanation"": ""Value 'example' for 'name' parameter is not valid"",
+      ""request"": {
+   ""token"": ""WW91ciBhdXRoZW50aWNhdGlvbiB0b2tlbiBnb2VzIGhlcmUu"",
+   ""event"": ""subscribe"",
+   ""payload"": {
+      ""name"": ""example""
+   }
+}
+   }
+}"
+Unsubscribe;unsubscribe;"This is the message to unsubscribe to data.
+You need to send a unsubscription message for each wanted data.
+When this message is sent, you immediately receive an aknownledgment about subscription status, and stop receiving unsubscribed data.";"name;String;Required;Name of wanted data to unsubscribe;""service_availability"",""global_status"",""device_status"",""device_laser_chain_status"",""device_thermal_manager_status"",""device_disk_status"",""device_pth_sensor_status"",""device_data_availability_status"",""device_synchro_status"",""device_power_pack_status"",""device_compass_status"",""rtd"",""sta"",""std_sta"",""rfl""";"{
+   ""token"": ""WW91ciBhdXRoZW50aWNhdGlvbiB0b2tlbiBnb2VzIGhlcmUu"",
+   ""event"": ""unsubscribe"",
+   ""payload"": {
+      ""name"": ""rtd""
+   }
+};
+{
+   ""token"": ""WW91ciBhdXRoZW50aWNhdGlvbiB0b2tlbiBnb2VzIGhlcmUu"",
+   ""event"": ""unsubscribe"",
+   ""payload"": {
+      ""name"": ""sta""
+   }
+};
+{
+   ""token"": ""WW91ciBhdXRoZW50aWNhdGlvbiB0b2tlbiBnb2VzIGhlcmUu"",
+   ""event"": ""unsubscribe"",
+   ""payload"": {
+      ""name"": ""std_sta""
+   }
+};
+{
+   ""token"": ""WW91ciBhdXRoZW50aWNhdGlvbiB0b2tlbiBnb2VzIGhlcmUu"",
+   ""event"": ""unsubscribe"",
+   ""payload"": {
+      ""name"": ""rfl""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""unsubscribe"",
+   ""payload"": {
+      ""name"": ""global_status""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""unsubscribe"",
+   ""payload"": {
+      ""name"": ""device_status""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""unsubscribe"",
+   ""payload"": {
+      ""name"": ""device_laser_chain_status""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""unsubscribe"",
+   ""payload"": {
+      ""name"": ""device_thermal_manager_status""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""unsubscribe"",
+   ""payload"": {
+      ""name"": ""device_disk_status""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""unsubscribe"",
+   ""payload"": {
+      ""name"": ""device_pth_sensor_status""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""unsubscribe"",
+   ""payload"": {
+      ""name"": ""device_data_availability_status""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""unsubscribe"",
+   ""payload"": {
+      ""name"": ""device_synchro_status""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""unsubscribe"",
+   ""payload"": {
+      ""name"": ""device_power_pack_status""
+   }
+};
+{
+   ""token"": ""sq91ciBhdXRoZW50aWNhdGlvbiB0bdaebiBnb2VzIGhlcmUu"",
+   ""event"": ""unsubscribe"",
+   ""payload"": {
+      ""name"": ""device_compass_status""
+   }
+}";subscription_status;;"{
+   ""event"": ""error"",
+   ""payload"": {
+      ""error"": ""parameter_not_valid"",
+      ""explanation"": ""Value 'example2' for 'name' parameter is not valid"",
+      ""request"": {
+   ""token"": ""WW91ciBhdXRoZW50aWNhdGlvbiB0b2tlbiBnb2VzIGhlcmUu"",
+   ""event"": ""unsubscribe"",
+   ""payload"": {
+      ""name"": ""example2""
+   }
+}
+   }
+}"
+;;;;;;;
+;;;;;;;
+;;;;;;;
+DELIMITER;<== DO NOT REMOVE THIS KEYWORD AND KEEP RESPONSES HEADERS IN BELOW LINE;;;;;;
+RESPONSE NAME;RESPONSE EVENT NAME;RESPONSE DESCRIPTION;"PAYLOAD PARAMETERS (NAME;TYPE;OPTIONAL;DESCRIPTION;OPTIONAL_ENUM_SEPARATED_BY_COMMAS)";RESPONSE EXAMPLES;RESPONSE PERMISSION;;
+Subscription status;subscription_status;Message sent as acknowledgment of subscription or unsubscription;"name;String;Required;Data name;""service_availability"",""global_status"",""device_status"",""device_laser_chain_status"",""device_thermal_manager_status"",""device_disk_status"",""device_pth_sensor_status"",""device_data_availability_status"",""device_synchro_status"",""device_power_pack_status"",""device_compass_status"",""rtd"",""sta"",""std_sta"",""rfl""
+is_subscribed;Bool;Required;Subscription status;true,false";"{
+   ""event"": ""subscription_status"",
+   ""payload"": {
+      ""name"": ""rtd"",
+      ""is_subscribed"": true
+   }
+};
+{
+   ""event"": ""subscription_status"",
+   ""payload"": {
+      ""name"": ""sta"",
+      ""is_subscribed"": true
+   }
+};
+{
+   ""event"": ""subscription_status"",
+   ""payload"": {
+      ""name"": ""std_sta"",
+      ""is_subscribed"": true
+   }
+};
+{
+   ""event"": ""subscription_status"",
+   ""payload"": {
+      ""name"": ""rfl"",
+      ""is_subscribed"": true
+   }
+}";;;
+Global status;global_status;Lidar global status, sent at least every 15min or when it changes;"status;String;Required;Global status;""OK"", ""WARNING"", ""CRITICAL"", ""UNKNOWN""";"{
+   ""event"": ""global_status"",
+   ""payload"": {
+      ""status"": ""CRITICAL""
+   }
+}
+";viewer;;
+Device Status;device_status;Lidar device status, sent at each status update of a device in the following list : {laser chain, thermal manager, disk, pth sensor, data availability, time synchro, power pack, compass}  ;"status;String;Required;Device status;""OK"", ""WARNING"", ""CRITICAL"", ""UNKNOWN""";"{
+{
+   ""event"":""device_status"",
+   ""payload"": {
+      ""status"": ""OK"",
+      ""explanation"":""device OK"",
+      ""device_name"":""POWER_PACK""
+   }
+}
+";viewer;;
+Device Laser Chain Status;device_laser_chain_status;Lidar device laser chain status, sent at each status update of the laser chain;"status;String;Required;Device laser chain status;""OK"", ""WARNING"", ""CRITICAL"", ""UNKNOWN""";"{""event"":""device_laser_chain_status"",""payload"":{""status"":""OK"",""explanation"":""device OK"",""device_name"":""EDFA""}}";viewer;;
+Device Thermal Manager Status;device_thermal_manager_status;Lidar device thermal manager status, sent at each status update of the thermal manager;"status;String;Required;Device thermal manager status;""OK"", ""WARNING"", ""CRITICAL"", ""UNKNOWN""";"{""event"":""device_thermal_manager_status"",""payload"":{""status"":""OK"",""explanation"":""device OK"",""device_name"":""THERMAL_MANAGER""}}";viewer;;
+Device Disk Status;device_disk_status;Lidar device disk status, sent at each status update of the disk;"status;String;Required;Device disk status;""OK"", ""WARNING"", ""CRITICAL"", ""UNKNOWN""";"{""event"":""device_disk_status"",""payload"":{""status"":""OK"",""explanation"":""device OK"",""device_name"":""DISK""}}";viewer;;
+Device PTH Sensor Status;device_pth_sensor_status;Lidar device PTH sensor status, sent at each status update of the PTH sensor;"status;String;Required;Device PTH sensor status;""OK"", ""WARNING"", ""CRITICAL"", ""UNKNOWN""";"{""event"":""device_pth_sensor_status"",""payload"":{""status"":""OK"",""explanation"":""device OK"",""device_name"":""PTH_SENSOR""}}";viewer;;
+Device Data Availability Status;device_data_availability_status;Lidar device data availability status, sent at each status update of the data availability;"status;String;Required;Device data availability status;""OK"", ""WARNING"", ""CRITICAL"", ""UNKNOWN""";"{""event"":""device_data_availability_status"",""payload"":{""status"":""OK"",""explanation"":""device OK"",""device_name"":""DATA_AVAILABILITY""}}";viewer;;
+Device Synchro Status;device_synchro_status;Lidar device synchro status, sent at each status update of the synchro;"status;String;Required;Device synchro status;""OK"", ""WARNING"", ""CRITICAL"", ""UNKNOWN""";"{""event"":""device_synchro_status"",""payload"":{""status"":""OK"",""explanation"":""device OK"",""device_name"":""SYNCHRO""}}";viewer;;
+Device Power Pack Status;device_power_pack_status;Lidar device power pack status, sent at each status update of the power pack;"status;String;Required;Device power pack status;""OK"", ""WARNING"", ""CRITICAL"", ""UNKNOWN""";"{""event"":""device_power_pack_status"",""payload"":{""status"":""OK"",""explanation"":""device OK"",""device_name"":""POWER_PACK""}}";viewer;;
+Device Compass Status;device_compass_status;Lidar device compass status, sent at each status update of the compass;"status;String;Required;Device compass status;""OK"", ""WARNING"", ""CRITICAL"", ""UNKNOWN""";"{""event"":""device_compass_status"",""payload"":{""status"":""OK"",""explanation"":""device OK"",""device_name"":""COMPASS""}}";viewer;;
+
+RTD;rtd;Message sent when new rtd data is available;"timestamp;String;Required;Data timestamp
+position;String;Required;LOS position;""V"",""0"",""90"",""180"",""270""
+cnr;Number[];Required;CNR (dB) for each range
+radial_wind_speed;Number[];Required;Radial Wind Speed (m/s) for each range
+radial_wind_speed_dispersion;Number[];Required;Radial Wind Speed dispersion (m/s) for each range
+wind_speed;Number[];Required;Wind Speed (m/s) for each range
+wind_direction;Number[];Required;Wind direction (&deg) for each range
+z_wind;Number[];Required;Z-wind (m/s) for each range";"{
+	""event"": ""rtd"",
+	""payload"": {
+		""timestamp"": ""2021-11-15T14:00:04.615"",
+                        ""position"": ""90"",
+      ""temperature"": ""16"",
+      ""wiperCount"": ""0"",
+      ""ranges"": [40, 80, 100, 140],
+		""cnr"": [2.1, -0.4, 3.4, 6.2],
+		""radial_wind_speed"": [2.1, -0.4, 3.4, 6.2],
+		""radial_wind_speed_dispersion"": [2.1, -0.4, 3.4, 6.2],
+		""wind_speed"": [2.1, -0.4, 3.4, 6.2],
+		""wind_direction"": [2.1, -0.4, 3.4, 6.2],
+      ""x_wind"": [2.1, -0.4, 3.4, 6.2],
+      ""y_wind"": [2.1, -0.4, 3.4, 6.2],
+		""z_wind"": [2.1, -0.4, 3.4, 6.2]
+	}
+}
+";standard;;
+STA;sta;Message sent when new sta with fcr correction data is available;"timestamp;String;Required;Data timestamp
+intTemperature;Number;Required;Internal temperature (°C)
+extTemperature;Number;Required;External temperature (°C)
+pressure;Number;Required;Pressure (hPa)
+relHumidity;Number;Required;Relative humidity (%)
+wiperCount;Number;Required;Wiper count
+vbatt;Number;Required;Battery voltage (V)
+ranges;Number[];Required;Ranges (m)
+wind_speed;Number[];Required;Wind speed (m/s)
+wind_speed_dispersion;Number[];Required;Wind speed dispersion (m/s)
+wind_speed_min;Number[];Required;Wind speed min (m/s)
+wind_speed_max;Number[];Required;Wind speed max (m/s)
+wind_direction;Number[];Required;Wind direction (°)
+z_wind;Number[];Required;Z-wind (m/s)
+z_wind_dispersion;Number[];Required;Z-wind dispersion (m/s)
+cnr;Number[];Required;CNR (dB)
+cnr_min;Number[];Required;CNR min (dB)
+dopp_spectr_broad;Number[];Required;Doppler spectrum broadening (m/s)
+data_availability;Number[];Required;Data availability (%)";"{
+   ""event"":""sta"",
+   ""payload"":{
+      ""timestamp"":""2025-03-07T11:40:00"",
+      ""intTemperature":""24.399999618530273"",
+      ""extTemperature"":""17.350000381469727"",
+      ""pressure"":""996.280029296875"",
+      ""relHumidity"":""39.0099983215332"",
+      ""wiperCount"":""0"",
+      ""vbatt":""null"",
+      ""ranges"":[40,80,100,140],
+      ""wind_speed"":[2.1, -0.4, 3.4, 6.2],
+      ""wind_speed_dispersion"":[2.1, -0.4, 3.4, 6.2],
+      ""wind_speed_min"":[2.1, -0.4, 3.4, 6.2],
+      ""wind_speed_max"":[2.1, -0.4, 3.4, 6.2],
+      ""wind_direction"":[2.1, -0.4, 3.4, 6.2],
+      ""z_wind"": [2.1, -0.4, 3.4, 6.2],
+      ""z_wind_dispersion"":[0.7,0.7,0.8,0.7],
+      ""cnr"": [2.1, -0.4, 3.4, 6.2],
+      ""cnr_min"":[2.1, -0.4, 3.4, 6.2],
+      ""dopp_spectr_broad"":[1.5,1.6,1.6,1.5],
+      ""data_availability"":[100,100,100,100]
+   }
+}
+";standard;;
+STD STA;std_sta;Message sent when new sta data is available;"timestamp;String;Required;Data timestamp
+intTemperature;Number;Required;Internal temperature (°C)
+extTemperature;Number;Required;External temperature (°C)
+pressure;Number;Required;Pressure (hPa)
+relHumidity;Number;Required;Relative humidity (%)
+wiperCount;Number;Required;Wiper count
+vbatt;Number;Required;Battery voltage (V)
+ranges;Number[];Required;Ranges (m)
+wind_speed;Number[];Required;Wind speed (m/s)
+wind_speed_dispersion;Number[];Required;Wind speed dispersion (m/s)
+wind_speed_min;Number[];Required;Wind speed min (m/s)
+wind_speed_max;Number[];Required;Wind speed max (m/s)
+wind_direction;Number[];Required;Wind direction (°)
+z_wind;Number[];Required;Z-wind (m/s)
+z_wind_dispersion;Number[];Required;Z-wind dispersion (m/s)
+cnr;Number[];Required;CNR (dB)
+cnr_min;Number[];Required;CNR min (dB)
+dopp_spectr_broad;Number[];Required;Doppler spectrum broadening (m/s)
+data_availability;Number[];Required;Data availability (%)";"{
+   ""event"":""std_sta"",
+   ""payload"":{
+      ""timestamp"":""2025-03-07T11:40:00"",
+      ""intTemperature":""24.399999618530273"",
+      ""extTemperature"":""17.350000381469727"",
+      ""pressure"":""996.280029296875"",
+      ""relHumidity"":""39.0099983215332"",
+      ""wiperCount"":""0"",
+      ""vbatt":""null"",
+      ""ranges"":[40,80,100,140],
+      ""wind_speed"":[2.1, -0.4, 3.4, 6.2],
+      ""wind_speed_dispersion"":[2.1, -0.4, 3.4, 6.2],
+      ""wind_speed_min"":[2.1, -0.4, 3.4, 6.2],
+      ""wind_speed_max"":[2.1, -0.4, 3.4, 6.2],
+      ""wind_direction"":[2.1, -0.4, 3.4, 6.2],
+      ""z_wind"": [2.1, -0.4, 3.4, 6.2],
+      ""z_wind_dispersion"":[0.7,0.7,0.8,0.7],
+      ""cnr"": [2.1, -0.4, 3.4, 6.2],
+      ""cnr_min"":[2.1, -0.4, 3.4, 6.2],
+      ""dopp_spectr_broad"":[1.5,1.6,1.6,1.5],
+      ""data_availability"":[100,100,100,100]
+   }
+}
+";standard;;
+RFL;rfl;Message sent when new rfl data is available;"timestamp;String;Required;Data timestamp
+accumulation;Number;Required;Accumulation (mm)";"
+{""event"":""rfl"",
+   ""payload"":{
+      ""timestamp"":""2025-03-07T11:40:00"",
+      ""accumulation"":0}}
+";standard;;
+Error;error;General error object, sent by server when incoming request is invalid;"error;String;Required;Error keyword
+explanation;String;Required;Error explanation
+request;Object;Optional;The request sent by client resulting in this error. This parameter may be absent depending on the returned error.";"{
+   ""event"": ""error"",
+   ""payload"": {
+      ""error"": ""event_not_valid"",
+      ""explanation"": ""Event 'example' does not exist"",
+      ""request"": {
+   ""token"": ""WW91ciBhdXRoZW50aWNhdGlvbiB0b2tlbiBnb2VzIGhlcmUu"",
+   ""event"": ""example"",
+   ""payload"": {
+      ""parameter"": ""value""
+   }
+}
+   }
+}";;;
+Service availability;service_availability;Message informing about service availability, sent at least every minute or when service becomes available/unavailable. When service is not available, most of subscriptions do not send new data until it becomes available again.;"available;Bool;Required;Service availability;true,false";"{
+   ""event"": ""service_availability"",
+   ""payload"": {
+      ""available"": true
+   }
+}";viewer;;
